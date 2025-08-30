@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0 20px;
+}
+
+header.banner {
+  background: #002147;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #002147;
+}
+
+form {
+  margin: 20px 0;
+}
+
+input[type="text"], input[type="number"] {
+  margin: 5px;
+  padding: 6px;
+}
+
+.fixture {
+  background: white;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #0044cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003399;
+}
