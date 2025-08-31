@@ -2,8 +2,9 @@ async function loadPredictionForm() {
   document.getElementById("registration-section").style.display = "none";
   document.getElementById("prediction-section").style.display = "block";
 
-  const fixturesRes = await fetch('https://fantasy.premierleague.com/api/fixtures/');
-  const teamsRes = await fetch('https://fantasy.premierleague.com/api/bootstrap-static/');
+  const proxy = "https://corsproxy.io/?";
+  const fixturesRes = await fetch(proxy + "https://fantasy.premierleague.com/api/fixtures/");
+  const teamsRes = await fetch(proxy + "https://fantasy.premierleague.com/api/bootstrap-static/");
   const fixtures = await fixturesRes.json();
   const teams = await teamsRes.json();
 
