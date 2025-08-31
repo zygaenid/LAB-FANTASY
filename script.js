@@ -73,7 +73,7 @@ document.getElementById("prediction-form").addEventListener("submit", async func
   fixtures.forEach((fixture, i) => {
     const homeScore = fixture.querySelector(`#home-${i}`).value;
     const awayScore = fixture.querySelector(`#away-${i}`).value;
-    const isCaptain = fixture.querySelector("input[type='radio']")?.checked || false;
+    const isCaptain = fixture.querySelector(`input[name="captain"][value="${i}"]`)?.checked || false;
 
     predictions.push({ homeScore, awayScore, isCaptain });
   });
@@ -85,8 +85,7 @@ document.getElementById("prediction-form").addEventListener("submit", async func
     predictions
   };
 
-  // ✅ Replace with your deployed Google Apps Script Web App URL
-  const response = await fetch(https://script.google.com/macros/s/AKfycbwHiB1PZSBvVfGMTsfXOrMcT5e6vLH-ffPPX-x53EemW-IGsX6K16rcDR8VKPCBfZtPjw/exec, {
+  const response = await fetch("https://script.google.com/macros/s/AKfycbwHiB1PZSBvVfGMTsfXOrMcT5e6vLH-ffPPX-x53EemW-IGsX6K16rcDR8VKPCBfZtPjw/exec", {
     method: "POST",
     body: JSON.stringify(payload),
     headers: {
