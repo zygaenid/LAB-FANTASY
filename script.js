@@ -56,13 +56,11 @@ async function loadPredictionForm() {
   });
 }
 
-// Show prediction form after registration
 document.getElementById("registration-form").addEventListener("submit", function (e) {
   e.preventDefault();
   loadPredictionForm();
 });
 
-// Handle prediction form submission
 document.getElementById("prediction-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -87,7 +85,7 @@ document.getElementById("prediction-form").addEventListener("submit", async func
     predictions
   };
 
-  // ✅ Replace with your actual Google Web App URL
+  // ✅ Replace with your deployed Google Apps Script Web App URL
   const response = await fetch(https://script.google.com/macros/s/AKfycbwHiB1PZSBvVfGMTsfXOrMcT5e6vLH-ffPPX-x53EemW-IGsX6K16rcDR8VKPCBfZtPjw/exec, {
     method: "POST",
     body: JSON.stringify(payload),
