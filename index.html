@@ -2,59 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LAB FANTASY Prediction League</title>
   <link rel="icon" href="favicon.ico?v=1">
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4"/>
 </head>
 <body>
 
   <!-- Banner -->
   <div class="banner-wrap">
-    <img src="lab-banner.jpg?v=1" alt="LAB FANTASY Banner" class="banner-img" />
+    <img src="lab-banner.jpg?v=1" alt="LAB FANTASY Banner" class="banner-img"/>
   </div>
 
   <header class="banner">
     <h1>LAB FANTASY Prediction League</h1>
   </header>
 
-  <!-- Trophy -->
-  <div class="trophy-wrap">
-    <img src="trophy.png?v=1" alt="Prediction League Trophy" class="trophy-img">
-  </div>
+  <!-- Navigation -->
+  <nav class="nav">
+    <button id="nav-predict">Predict</button>
+    <button id="nav-gw-leaderboard">GW Leaderboard</button>
+    <button id="nav-overall">Overall Leaderboard</button>
+    <button id="nav-gw-results">GW Results</button>
+  </nav>
 
   <!-- Registration -->
   <section id="registration-section">
     <h2>Join the League</h2>
     <form id="registration-form">
-      <input type="text" id="full-name" placeholder="Full Name" required />
-      <input type="text" id="twitter-handle" placeholder="Twitter Handle" required />
-      <button type="submit">Join</button>
+      <input type="text" id="full-name" placeholder="Full Name" required/>
+      <input type="text" id="twitter-handle" placeholder="Twitter Handle" required/>
+      <button type="submit">Continue</button>
     </form>
   </section>
 
-  <!-- Predictions -->
+  <!-- Prediction Form -->
   <section id="prediction-section" style="display:none;">
-    <h2>Gameweek Predictions – Live Fixtures</h2>
+    <h2>Gameweek Predictions – Fixtures</h2>
+    <div class="gw-context">
+      <span id="gw-label"></span>
+      <span id="status" class="prediction-status"></span>
+    </div>
     <form id="prediction-form">
       <div id="fixtures-container"></div>
       <div class="actions">
         <button type="submit">Submit Predictions</button>
-        <span id="status" class="prediction-status"></span>
       </div>
     </form>
   </section>
 
-  <!-- Leaderboard -->
-  <section id="leaderboard-section">
-    <h2>Leaderboard</h2>
-    <div class="leaderboard-btns">
-      <button id="btn-gw-leaderboard">GW Leaderboard</button>
-      <button id="btn-overall-leaderboard" class="ml-8">Overall Leaderboard</button>
+  <!-- GW Leaderboard -->
+  <section id="gw-leaderboard-section" style="display:none;">
+    <h2 id="gw-leaderboard-title">GW Leaderboard</h2>
+    <div class="toolbar">
+      <label>GW:
+        <input type="number" id="gw-input" min="1" value="1" class="gw-input"/>
+      </label>
+      <button id="btn-load-gw-leaderboard">Load</button>
     </div>
-    <div id="leaderboard"></div>
+    <div id="gw-leaderboard"></div>
   </section>
 
-  <script src="script.js?v=3"></script>
+  <!-- Overall Leaderboard -->
+  <section id="overall-section" style="display:none;">
+    <h2>Overall Leaderboard</h2>
+    <div id="overall-leaderboard"></div>
+  </section>
+
+  <!-- GW Results (per match predictions + points) -->
+  <section id="gw-results-section" style="display:none;">
+    <h2 id="gw-results-title">GW Results</h2>
+    <div class="toolbar">
+      <label>GW:
+        <input type="number" id="gw-results-input" min="1" value="1" class="gw-input"/>
+      </label>
+      <button id="btn-load-gw-results">Load</button>
+    </div>
+    <div id="gw-results"></div>
+  </section>
+
+  <script src="script.js?v=4"></script>
 </body>
 </html>
