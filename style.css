@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f3f4f6;
+  background-color: #f3f4f6; /* light grey for contrast */
   color: #222;
 }
 
@@ -39,7 +39,7 @@ input[type="number"] {
 
 button {
   width: 100%;
-  background-color: #37003c;
+  background-color: #37003c; /* EPL purple */
   color: white;
   border: none;
   padding: 10px;
@@ -52,6 +52,7 @@ button:hover {
   background-color: #5e006f;
 }
 
+/* Fixture cards */
 .fixture {
   background: #fff;
   padding: 15px;
@@ -87,6 +88,55 @@ button:hover {
 .fixture label {
   margin-left: 10px;
   font-size: 14px;
+}
+
+/* Locked fixture state */
+.locked {
+  opacity: 0.6;
+}
+
+/* Leaderboard tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #37003c;
+  color: white;
+  font-weight: 600;
+}
+
+tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+/* Leaderboard buttons */
+#leaderboard-section button {
+  width: auto;
+  padding: 8px 16px;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 20px;
+  background: #eee;
+  color: #37003c;
+  border: 1px solid #ccc;
+}
+
+#leaderboard-section button:hover {
+  background: #37003c;
+  color: white;
 }
 
 @media (max-width: 600px) {
