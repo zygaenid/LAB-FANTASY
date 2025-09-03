@@ -24,7 +24,11 @@ function isLockedFromFixture(f) {
 }
 
 /***** API CALLS *****/
-async function api(path=""){ const r=await fetch(`${GAS}${path}`); if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); }
+async function api(path=""){
+  const r = await fetch(`${GAS}${path}`);
+  if(!r.ok) throw new Error(`HTTP ${r.status}`);
+  return r.json();
+}
 async function getGWData(){ return api(`?fn=gwData`); }
 async function getRealScores(gw){ return api(`?fn=realScores&gw=${gw}`); }
 async function getAllPredictions(){ return api(); }
@@ -54,7 +58,7 @@ function renderFixtures(fixtures) {
 
       const locked = isLockedFromFixture(f);
       const disabledAttr = locked ? 'disabled aria-disabled="true"' : "";
-      const lockBadge = locked ? `<span style="margin-left:8px;padding:2px 6px;border-radius:6px;background:#eee;font-size:12px;">Locked</span>` : "";
+      const lockBadge = locked ? `<span class="lock-badge">Locked</span>` : "";
 
       const div = document.createElement("div");
       div.classList.add("fixture");
@@ -68,8 +72,8 @@ function renderFixtures(fixtures) {
           <span style="font-size: 14px; color: #555;">${timeString}${lockBadge}</span>
         </div>
         <div style="margin-top: 6px;">
-          <input type="number" id="home-${i}" min="0" placeholder="${f.home}" style="width:56px;" ${disabledAttr}> -
-          <input type="number" id="away-${i}" min="0" placeholder="${f.away}" style="width:56px;" ${disabledAttr}>
+          <input type="number" id="home-${i}" min="0" placeholder="${f.home}" ${disabledAttr}> -
+          <input type="number" id="away-${i}" min="0" placeholder="${f.away}" ${disabledAttr}>
           <label style="margin-left:10px;"><input type="radio" name="captain" value="${i}" ${locked ? "disabled" : ""}> Captain</label>
         </div>
       `;
@@ -82,7 +86,6 @@ async function paintRealScores(fixtures, gw){
   try{
     const j = await getRealScores(gw);
     const matches = j.matches || [];
-    // Build lookup by normalized pair
     const byPair = new Map();
     matches.forEach(m => {
       const key = sameTeamName(m.home) + "|" + sameTeamName(m.away);
